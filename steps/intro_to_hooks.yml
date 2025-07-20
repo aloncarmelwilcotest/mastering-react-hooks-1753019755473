@@ -1,0 +1,29 @@
+id: intro_to_hooks
+learningObjectives:
+  - Understand what React Hooks are.
+hints:
+  - Check out the official React documentation to understand the basics of hooks.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Welcome to your React Hooks Adventure! Hooks are game changers for
+              functional components, allowing you to use state and other React
+              features.
+          - text: They make your components cleaner and easier to understand without the
+              need for class components.
+          - text: We'll start by understanding what hooks are and why they're essential in
+              modern React development.
+          - text: "Here's a nice resource to get an overview: [Introducing
+              Hooks](https://reactjs.org/docs/hooks-intro.html)."
+          - text: When you're ready, let's dive into useState, the most commonly used hook.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step
