@@ -1,0 +1,33 @@
+id: end_of_quest
+learningObjectives:
+  - Summarize the learning journey through React Hooks.
+hints: []
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Wow, you've reached the end of our quest into the world of React hooks!
+          - text: You've learned about the magic of useState for managing state and
+              useEffect for handling side effects.
+          - text: We've also delved into the power of custom hooks, which allow you to
+              create reusable and encapsulated logic.
+          - text: Give yourself a pat on the back for mastering such an essential part of
+              React. Well done!
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: Yay! You've completed the React Hooks Adventure! You're now equipped with
+                a new level of React magic, understanding hooks and managing
+                state like a pro. Keep practicing, and thank you for taking this
+                journey with me. Until next time! 🍃
+      - actionId: finish_step
