@@ -1,0 +1,33 @@
+id: react_hooks_adventure
+title: Mastering React Hooks
+subtitle: Understand and use state with hooks
+description: >-
+  Welcome to the realm of React Hooks, where we'll uncover the magic that makes
+  functional components powerful and efficient. Throughout this quest, we will
+  dive deep into the world of hooks to understand their practical relevance in
+  state management.
+
+
+  Get ready to learn about essential hooks like useState and useEffect and how they revolutionize functional components in React. We'll also explore custom hooks and their role in creating reusable logic that enhances code efficiency.
+
+
+  By the end of this adventure, you'll be equipped with the knowledge and confidence to apply React Hooks effectively, manage state seamlessly, and level up your React applications. Ready to unlock the potential of hooks and transform your development game? Let's embark on this fascinating journey!
+level: intermediate
+duration: 0.6666666666666666
+skills:
+  - react
+  - state management
+  - web development
+  - javascript
+  - front-end development
+steps:
+  - intro_to_hooks
+  - understanding_useState
+  - useState_quiz
+  - understanding_useEffect
+  - useEffect_quiz
+  - intro_to_custom_hooks
+  - creating_custom_hooks
+  - end_of_quest
+type: MODULE
+repository: null
