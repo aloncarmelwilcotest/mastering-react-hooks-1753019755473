@@ -1,0 +1,97 @@
+id: creating_custom_hooks
+learningObjectives:
+  - Reflect on the benefits of custom hooks.
+hints:
+  - Consider the benefits of reusability and stateful logic.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Why would you use a custom hook instead of just regular JavaScript
+              functions?
+trigger:
+  type: user_message
+  params:
+    person: lucca
+  flowNode:
+    do:
+      - actionId: parse_user_response
+        name: user_answer
+        params:
+          prompt: "
+
+            \    Please evaluate the user's answer in relation to
+            the expected answer: Custom hooks allow encapsulating re-usable hook
+            logic. They enable reusing stateful logic without duplicating code
+            and can lead to cleaner, more maintainable code. Remember, they
+            allow hooks like useState or useEffect to be reused in different
+            components..
+
+            \    # Assessment Criteria
+
+            \    - Determine if the user's response demonstrates a
+            clear understanding of the key concepts and ideas presented in the
+            expected answer.
+
+            \    - Consider synonyms, paraphrasing, and different
+            phrasing that convey the same meaning.
+
+            \    - Be flexible and focus on the essence of the
+            answer rather than exact wording.
+
+            \ \ 
+
+            \    # Response Guidelines:
+
+            \    - If the user's answer is correct or shows
+            sufficient understanding, return 'correct: true'.
+
+            \      - Provide a positive and affirming message,
+            congratulating them and reinforcing their understanding.
+
+            \    - If the user's answer is incorrect or incomplete,
+            return 'correct: false'.
+
+            \      - Gently explain why the answer is not fully
+            correct or what may be missing.
+
+            \      - Encourage them to try again, being empathetic
+            and supportive.
+
+            \ \ 
+
+            \    # Tone and Style:
+
+            \    - Use friendly and encouraging language.
+
+            \    - Be empathetic to the user's learning process.
+
+            \    - Focus on helping the user learn and understand
+            the material.
+
+            \  "
+          schema:
+            correct: boolean
+            reply: string
+    if:
+      conditions:
+        - conditionId: is_truthy
+          params:
+            value: ${outputs.user_answer.value.correct}
+      then:
+        do:
+          - actionId: bot_message
+            params:
+              person: lucca
+              messages:
+                - text: ${outputs.user_answer.value.reply}
+          - actionId: finish_step
+      else:
+        do:
+          - actionId: bot_message
+            params:
+              person: lucca
+              messages:
+                - text: ${outputs.user_answer.value.reply}
