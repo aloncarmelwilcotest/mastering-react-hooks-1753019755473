@@ -1,0 +1,26 @@
+id: intro_to_custom_hooks
+learningObjectives:
+  - Understand the concept of custom hooks.
+hints:
+  - Think about common logic you could reuse across components.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Moving on to a higher level of hook mastery, let's explore custom hooks.
+          - text: Custom hooks are JavaScript functions whose names start with 'use' and
+              that can call other hooks.
+          - text: They allow you to encapsulate and reuse hook logic across components.
+          - text: "For a deeper dive, read this: [Building Your Own
+              Hooks](https://reactjs.org/docs/hooks-custom.html)."
+          - text: Ready to create your own hook? Let's reflect on the possibilities.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step
