@@ -1,0 +1,59 @@
+id: useEffect_quiz
+learningObjectives:
+  - Understand the basic use case of useEffect.
+hints:
+  - Check out how useEffect behaves based on its dependency array from the
+    [documentation](https://reactjs.org/docs/hooks-effect.html).
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Under what circumstances does useEffect run when no dependencies are
+              provided?
+    - actionId: quiz_message
+      name: quiz
+      params:
+        person: lucca
+        options:
+          - After every render of the component.
+          - Only once after the initial render.
+          - Whenever the state changes.
+trigger:
+  type: chat_form_submitted
+  flowNode:
+    switch:
+      key: ${formSubmission}
+      cases:
+        A:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Correct! With an empty dependency array, useEffect runs after every
+                      render.
+            - actionId: finish_step
+        B:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Close, but that's not right. Look into how dependencies affect the running
+                      of useEffect.
+            - actionId: replay_action
+              params:
+                actionName: quiz
+        C:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Not quite. Consider what triggers useEffect specifically without
+                      dependencies.
+            - actionId: replay_action
+              params:
+                actionName: quiz
