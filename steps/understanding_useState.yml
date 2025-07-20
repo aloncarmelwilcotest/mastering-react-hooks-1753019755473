@@ -1,0 +1,27 @@
+id: understanding_useState
+learningObjectives:
+  - Learn how to use the useState hook.
+hints:
+  - Remember, useState should be called inside a React component function.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Let's talk about useState, the backbone of state management in functional
+              components.
+          - text: useState is a Hook that lets you add React state to function components.
+          - text: Essentially, it returns an array containing the current state and a
+              function to update that state.
+          - text: "Want to see it in action? Check out this example: [Using the State
+              Hook](https://reactjs.org/docs/hooks-state.html)."
+          - text: Ready to puzzle out a question about useState?
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step
