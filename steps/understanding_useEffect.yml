@@ -1,0 +1,27 @@
+id: understanding_useEffect
+learningObjectives:
+  - Explore the useEffect hook and its capabilities.
+hints:
+  - Think about how side effects are dealt with in React components.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Next, let's explore useEffect, a hook that handles side effects in
+              functional components.
+          - text: With useEffect, you can accomplish tasks like data fetching,
+              subscriptions, or manually changing the DOM.
+          - text: "Want more details? This guide is great: [Effect
+              Hook](https://reactjs.org/docs/hooks-effect.html)."
+          - text: Once you've wrapped your mind around useEffect, let's test your knowledge
+              with a question.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step
