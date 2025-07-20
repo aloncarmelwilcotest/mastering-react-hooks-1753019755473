@@ -1,0 +1,56 @@
+id: useState_quiz
+learningObjectives:
+  - Solidify understanding of useState syntax.
+hints:
+  - Look closely at how useState is used in example code from [the
+    documentation](https://reactjs.org/docs/hooks-state.html).
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: How do you properly initialize a state variable named 'count' with
+              useState starting from 0?
+    - actionId: quiz_message
+      name: quiz
+      params:
+        person: lucca
+        options:
+          - const [count, setCount] = useState(0);
+          - let count = useState(0);
+          - state.count = useState(0);
+trigger:
+  type: chat_form_submitted
+  flowNode:
+    switch:
+      key: ${formSubmission}
+      cases:
+        A:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Spot on! That's the correct way to initialize 'count' with useState.
+            - actionId: finish_step
+        B:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Not quite. Remember, the correct syntax involves destructuring an array.
+            - actionId: replay_action
+              params:
+                actionName: quiz
+        C:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Oops! Check how state is typically managed in function components.
+            - actionId: replay_action
+              params:
+                actionName: quiz
